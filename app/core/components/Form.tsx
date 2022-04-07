@@ -1,6 +1,6 @@
 import { useState, ReactNode, PropsWithoutRef } from "react"
 import { Formik, FormikProps } from "formik"
-import { validateZodSchema } from "blitz"
+// import { validateZodSchema } from "blitz"
 import { z } from "zod"
 
 export interface FormProps<S extends z.ZodType<any, any>>
@@ -33,7 +33,7 @@ export function Form<S extends z.ZodType<any, any>>({
   return (
     <Formik
       initialValues={initialValues || {}}
-      validate={validateZodSchema(schema)}
+      // validate={validateZodSchema(schema)}
       onSubmit={async (values, { setErrors }) => {
         const { FORM_ERROR, ...otherErrors } = (await onSubmit(values)) || {}
 
