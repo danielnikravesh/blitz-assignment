@@ -57,6 +57,20 @@ model Token {
   @@unique([hashedToken, type])
 }
 
+model Post {
+  id       Int       @id @default(autoincrement())
+  title    String
+  body     String
+  comments Comment[]
+}
+
+model Comment {
+  id      Int    @id @default(autoincrement())
+  post    Post   @relation(fields: [postId], references: [id])
+  postId  Int
+  comment String
+}
+
 model BlitzAssignment {
   id       Int     @id @default(autoincrement())
   name     String
